@@ -1,0 +1,39 @@
+from karel.stanfordkarel import *
+
+"""
+File: wall_painting_karel.py
+--------------------
+When you finish writing this file, wall painting karel should be
+able to paint the exterior of three buildings in a given
+world. You should make sure that your program works for all of the 
+sample worlds supplied in the starter folder.
+"""
+
+def main():
+#for loop 2 times G0() and turn_right() after that run Go()
+    for i in range(2):
+        Go()
+        turn_right()
+    Go()
+    
+def put():
+#While loop when left is blocked Karel Reader will put beeper and then move
+    while left_is_blocked():
+        put_beeper()
+        move()
+        
+def Go():
+#for loop 2 time put() and turnleft and move and then put()
+    for i in range(2):
+        put()
+        turn_left()
+        move()
+        put()
+    
+def turn_right():
+#for loop 3 time turn left
+    for i in range(3):
+        turn_left()
+
+if __name__ == "__main__":
+    run_karel_program()
