@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration</title>
+	<link rel="stylesheet" href="FA_Login.css">
+</head>
+<body>
+<nav>
+	<label class="logo">DeliverFood</label>
+	<ul>
+		<li><a class="active" href="FA_Home.php">Home</a></li>
+		<li><a href="#">About</a></li>
+		<li><a href="#">Food</a></li>
+		<li><a href="#">Contact</a></li>
+		<li><a href="#">Cart</a></li>
+		<li><a href="FA_Login.html">Login</a></li>
+	</ul>
+</nav><br>
+	  
+<center>
+<div class="wrapper">
+<h2>Please Register Your Account.</h2><br>
+<form method="post" action="FA_SuccessRegister.php">
+<table>
+	<tr>
+		<td><label for="username">Username:</label></td>
+		<td><input type="text" id="username" name="username" required></td>
+	</tr>
+	
+	<tr>
+		<td><label for="password">Password:</label></td>
+		<td><input type="password" id="password" name="password" minlength="4" required></td>
+	</tr>
+	
+	<tr>
+		<td><label for="confirm_password">Confirm Password:</label></td>
+		<td><input type="password" id="confirm_password" name="confirm_password" minlength="4" required></td>
+	</tr>
+
+	<tr>
+		<td><label for="email">Email:</label></td>
+		<td><input type="email" id="email" name="email" required></td>
+	</tr>
+
+	<tr>
+		<td><label for="dob">Date of Birth:</label></td>
+		<td><input type="date" id="dob" name="dob" value="dob" required></td>
+	</tr>
+		
+	<tr>
+		<td><label for="terms">Acceptance of terms & conditions:</label></td>
+		<td><input type="checkbox" id="terms" name="terms" required></td>
+	</tr>
+</table>
+<br>
+<input type="submit" name="submit" value="Submit">
+
+</form>
+</div>
+</body>
+</html>
