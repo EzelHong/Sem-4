@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login</title>
+<link rel="stylesheet" href="FA_Login.css">
+</head>
+<body>
+	<nav>
+		<label class="logo">DeliverFood</label>
+		<ul>
+		  <li><a class="active" href="FA_Home.php">Home</a></li>
+		  <li><a href="#">About</a></li>
+		  <li><a href="#">Food</a></li>
+		  <li><a href="#">Contact</a></li>
+		  <li><a href="#">Cart</a></li>
+		  <li><a href="FA_Login.html">Login</a></li>
+		</ul>
+	</nav><br>
+
+<center>
+<div class="wrapper">
+<h2>Welcome to DeliverFood Please Login.</h2><br>
+<form action="FA_Home.php" method="post">
+	<label for="username">Username:</label>
+	<input type="text" id="username" name="username" required>
+	<br><br>
+	<label for="password">Password:</label>
+	<input type="password" id="password" name="password" required>
+	<br><br>
+	<input type="submit" name="submit" value="Login">
+	<br><br>
+</form>
+<p>New user: <a href="FA_Register.html">Click Register</a></p>
+</div>
+</body>
+</html>
