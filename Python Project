@@ -1,0 +1,60 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Mon May 15 18:33:28 2023
+
+@author: Tang Kok Hong
+"""
+"""
+This program is a automated extract .zip or .rar file type.
+"""
+
+import sys
+import zipfile
+import patoolib
+import os
+
+
+def main():
+    # User input file type to extract
+    fileType = input("Enter zip or rar file to extract: ")
+    
+    # Check if the file exists
+    if not os.path.exists(fileType):
+        print("File does not exist.")
+        sys.exit(1)
+    
+    # User enter a new folder to extract the files
+    extractFile = input("Enter a new folder to extract the files: ")
+    
+    # Check if the folder exists, if not exists it will create it
+    # os.makedirs is create a directory for (extractFile)
+    if not os.path.exists(extractFile):
+        os.makedirs(extractFile)
+    
+    # Extract the file extension
+    file_extension = os.path.splitext(fileType)[1]
+    
+    # Unzip and unrar the file
+    try:
+        # extract .zip file type
+        if file_extension == '.zip':
+            with zipfile.ZipFile(fileType, 'r') as zipType:
+                zipType.extractall(extractFile)
+            print(f"{fileType} unzip successfully.")
+            
+        # extract .rar file type
+        elif file_extension == '.rar':
+            patoolib.extract_archive(fileType, outdir = extractFile)
+            print(f"{fileType} unrar successfully.")
+            
+        # file exist but not .zip or .rar file type
+        else:
+            print("Please enter zip and rar file type.")
+            sys.exit(1)
+            
+    except Exception as e:
+        print("An error occurred during extraction:", str(e))
+        sys.exit(1)
+
+if __name__ == "__main__":
+    main() 
