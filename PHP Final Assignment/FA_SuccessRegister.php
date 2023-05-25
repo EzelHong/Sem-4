@@ -98,7 +98,7 @@
         // Insert user data into the table
         $sql = "INSERT INTO users (username, password, email, address, dob) VALUES ('$name', '$userpassword', '$email', '$address', '$dob')";
         if ($conn->query($sql) === TRUE) {
-            echo "User registered successfully";
+            echo "User registered successfully <br><br>";
         } else {
             echo "<strong>Error! Username has been taken Please Register Again! </strong><br><br>";
         }
