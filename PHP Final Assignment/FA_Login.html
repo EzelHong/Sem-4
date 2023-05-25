@@ -3,34 +3,64 @@
 <head>
 	<title>Login</title>
 	<link rel="stylesheet" href="FA_Login.css">
+	<style>
+		.btnLogin {
+		  display: block;
+		  width: 55px;
+		  height: 25px;
+		  margin: auto;
+		}
+
+		footer {
+            background-color: darkred;
+            text-align: center;
+			position: fixed;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+			padding: 20px;
+			text-align: center;
+			font-size: 15px;
+            color: white;
+        }
+
+        .footer-content {
+            font-size: 15px;
+            color: white;
+        }
+	</style>
 </head>
 <body>
 <nav>
-	<label class="logo">DeliverFood</label>
+	<label class="logo">Foodie Express</label>
 	<ul>
-		<li><a class="active" href="FA_Home.php">Home</a></li>
-		<li><a class="active" href="FA_About.php">About</a></li>
-		<li><a href="#">Food</a></li>
-		<li><a href="#">Contact</a></li>
+		<li><a href="">Home</a></li>
+		<li><a href="">About</a></li>
+		<li><a href="">Food</a></li>
 		<li><a href="#">Cart</a></li>
-		<li><a href="FA_Login.html">Login</a></li>
+		<li><a class="active" href="FA_Login.html">Login</a></li>
 	</ul>
 </nav><br>
 
 <center>
 <div class="wrapper">
-<h2>Welcome to DeliverFood Please Login.</h2><br>
-<form action="FA_Home.php" method="post">
-	<label for="username">Username:</label>
-	<input type="text" id="username" name="username" required>
-	<br><br>
-	<label for="password">Password:</label>
-	<input type="password" id="password" name="password" required>
-	<br><br>
-	<input type="submit" name="submit" value="Login">
-	<br><br>
-</form>
-<p>New user: <a href="FA_Register.html">Click Register</a></p>
+	<h2>Welcome to Foodie Express Please Login.</h2><br>
+	<form action="Login.php" method="post">
+		<label for="username">Username:</label>
+		<input type="text" id="username" name="username" required>
+		<br><br>
+		<label for="password">Password:</label>
+		<input type="password" id="password" name="password" required>
+		<br><br>
+		<input class="btnLogin" type="submit" name="submit" value="Login">
+		<br>
+	</form>
+		<p>New user: <a href="FA_Register.html">Click Register</a></p>
 </div>
+
+<footer class="footer">
+	<p>Contact us at: info@example.com</a></p>
+</footer>
+
 </body>
 </html>
