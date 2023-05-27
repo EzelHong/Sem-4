@@ -10,8 +10,16 @@
         background-size: 20%;
         font-family: Times, sans-serif;
     }
-    
+
     .container {
+        text-align: left;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        font-size: 20px;
+    }
+
+    .container2 {
         display: flex;
         flex-wrap: wrap;
     }
@@ -63,6 +71,17 @@
         padding: 20px;
         font-size: 18px;
     }
+
+    footer {
+        background-color: darkred;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .footer-content {
+        font-size: 15px;
+        color: white;
+    }
 </style>
 </head>
 <body>
@@ -78,12 +97,24 @@
 </nav>
 
 <center>
-<div id="header"></div>
 <div class="wrapper">
-    <h1>Welcome to Foodie Express!</h1><br><hr><br>
-    <form method="post">
-        <h2><a>Cuisine from around the world:</a></h2><br>
-        <div class="container">
+    <h1>Welcome to Foodie Express!</h1><br><hr>
+    <div class="container">
+    <p><a><strong>Welcome to Foodie Express! </strong></a></p><br>
+    <p>We're here to make your dining experience convenient, enjoyable, and satisfying. 
+        Browse our curated restaurant listings, explore enticing menus, and place your order effortlessly. 
+        We prioritize quality and partner with reputable restaurants for fresh, delicious meals. 
+        Our dedicated delivery drivers ensure promptness and professionalism. Your feedback is important to us. 
+        Thank you for choosing Foodie Express, your trusted food delivery partner. Let us bring culinary delights to your doorstep!</p>
+    <br><p> - The Foodie Express Team</p>
+</div><hr>
+</div>
+
+
+<div class="wrapper">
+<form method="post">
+        <h2><a>Cuisine from around the world:</a></h2><br><hr><br>
+        <div class="container2">
             <div class="row">
                 <div class="item">
                     <img src="images/fc1.jpg" alt="Image 1">
@@ -116,29 +147,26 @@
                 </div>
             </div>
         </div>
-    </form>
+    </form><br><hr>
 </div>
-
-
+    
+    
 <div class="wrapper">
-    <br><hr><br>
     <form method="post">
-    <h2><a>Extensive Choice of Restaurants:</a></h2><br>
-    <div class="Extensive">
-        <a>Foodie Express brings together a diverse selection of local restaurants, ranging from popular chains to hidden gems in your neighborhood.</a>
-        <a>Whether you're craving traditional comfort food, international flavors, or healthy options, Foodie Express offers an extensive variety to cater to every palate.</a>
-        <a>From the cozy pizzeria down the street to the trendy fusion restaurant across town, you can explore and savor a wide range of culinary delights.</a>
-        <br><hr><br>
-    </div>
-
-    <h1><a>Why choose Foodie Express?</a></h1>
+    <h1><a>Why choose Foodie Express?</a></h1><br><hr>
     <div class="DES">
         <a><strong>Quickest</strong> - We provides the fastest food delivery in the market.</a>
         <a><strong>Easiest</strong> - Now order your food is just a few clicks or taps away. Order online for a faster and more rewarding experience.</a>
         <a><strong>Food for all cravings</strong> - From local fare to restaurant favourites, our wide selection of food will definitely satisfy all your cravings.</a>
         <a><strong>Pay with ease</strong> - It’s easy to get your foods delivered to you. It’s even easier to pay for it with online payment.</a>
-    </div><hr><br>
+    </div><hr>
     </form>
 </div>
+
+<footer>
+    <div class="footer-content">
+        <p>&copy; <?php echo date("Y"); ?> Foodie Express. All rights reserved.</p>
+    </div>
+</footer>
 </body>
 </html>
