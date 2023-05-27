@@ -19,14 +19,22 @@
             font-size: 20px;
         }
 
-        .AB a {
+        .Extensive a {
             text-align: left;
             display: block;
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
             font-size: 18px;
+        }
 
+        .DES a {
+            text-align: left;
+            display: block;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            font-size: 18px;
         }
 
         footer {
@@ -39,7 +47,6 @@
             font-size: 15px;
             color: white;
         }
-
     </style>
 </head>
 <body>
@@ -61,13 +68,15 @@
 <form method="post">
 
 <div class="container">
-    <p><a><strong>Welcome to Foodie Express! </strong></a></p><br>
-    <p>We're here to make your dining experience convenient, enjoyable, and satisfying. Browse our curated restaurant listings, explore enticing menus, and place your order effortlessly. We prioritize quality and partner with reputable restaurants for fresh, delicious meals. Our dedicated delivery drivers ensure promptness and professionalism. Your feedback is important to us. Thank you for choosing Foodie Express, your trusted food delivery partner. Let us bring culinary delights to your doorstep!</p>
-    <br><p> - The Foodie Express Team</p>
+    <p><a><strong>Extensive Choice of Restaurants:</strong></a></p><br>
+    <a>Foodie Express brings together a diverse selection of local restaurants, ranging from popular chains to hidden gems in your neighborhood.</a>
+    <a>Whether you're craving traditional comfort food, international flavors, or healthy options, Foodie Express offers an extensive variety to cater to every palate.</a>
+    <a>From the cozy pizzeria down the street to the trendy fusion restaurant across town, you can explore and savor a wide range of culinary delights.</a>
+    <br><br>
 </div><hr><br>
 
 <h1><a>Contact Us</a></h1>
-<div class="AB">
+<div class="DES">
     <img src="images/phone.png" style = "width: 80px; height:70px; float: left;">
     <a><strong>Phone</strong> - 0123456789</a><br><br>
     <img src="images/email.png" style = "width: 80px; height:70px; float: left;">
@@ -76,9 +85,7 @@
     <a><strong>Address</strong> - Blok B&C, Lot, 5, Seksyen 10, Jalan Bukit, Taman Bukit Mewah, 43000 Kajang, Selangor</a><br><br>
     
 </div><hr><br>
-
 </form>
-</div>
 </center>
 
 <footer>
