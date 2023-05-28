@@ -130,6 +130,7 @@ Public Class ScoringForm
     End Sub
 
 
+
     '----------------------------------------------------------------------------------'
     '----------------------------------------------------------------------------------'
     '----------------------------------------------------------------------------------'
@@ -171,7 +172,7 @@ Public Class ScoringForm
 
             Dim tolerance As Double = 0.000001
 
-            If answer = expectedAnswer Then
+            If Math.Abs(answer - expectedAnswer) <= tolerance Then
                 MessageBox.Show("Correct answer!")
                 score += 1
             Else
@@ -192,5 +193,6 @@ Public Class ScoringForm
             MessageBox.Show("Invalid answer! Please enter a valid number.")
         End If
     End Sub
+
 
 End Class
