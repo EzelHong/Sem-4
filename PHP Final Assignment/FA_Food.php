@@ -4,15 +4,32 @@
     <title>Food</title>
     <link rel="stylesheet" href="Final.css">
     <style>
+        body{
+            background-image: url('images/food.jpg');
+            background-repeat: 1;
+            background-size: 100%;
+            font-family: Times, sans-serif;
+        }
+
+        .wrapper {
+            width: 800px;
+            padding: 30px;
+            margin: 20px auto;
+            background-color: lightyellow;
+            border-radius: 10px;
+            text-align: center;
+        }
+
         table {
             border-collapse: collapse;
+            width: 500px;
         }
         th, td {
             border: 1px solid black;
             padding: 5px;
         }
         img {
-            width: 150px;
+            width: 200px;
             height: 150px;
         }
         .button {
@@ -26,6 +43,19 @@
 
         table{
             background-color: white;
+        }
+
+        footer {
+            background-color: darkred;
+            padding: 20px;
+            text-align: center;
+            margin-top: auto;
+            bottom: 0;
+        }
+
+        .footer-content {
+            font-size: 15px;
+            color: white;
         }
     </style>
 </head>
@@ -42,7 +72,7 @@
 </nav><br>
 
 <div class="wrapper">
-    <h1>Select Food Category</h1><br><hr><br>   
+    <h1>Select Food Category</h1><br><hr><br> 
     <center>
         <table>
             <tr>
@@ -53,18 +83,37 @@
             </tr>
             <tr>
                 <td>1</td>
-                <td>Western Food</td>
-                <td><img src="images/pic1.jpg"></td>
+                <td>Western Cuisine</td>
+                <td><img src="images/fc1.jpg"></td>
                 <td><button class="button" onclick="location.href='FA_WesternFood.php'">Next</button></td>
             </tr>
             <tr>
                 <td>2</td>
-                <td>Japanese Food</td>
-                <td><img src="images/pic2.jpg"></td>
+                <td>Japanese Cuisine</td>
+                <td><img src="images/fc2.jpg"></td>
                 <td><button class="button" onclick="location.href='FA_JPFood.php'">Next</button></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Malaysian Cuisine</td>
+                <td><img src="images/fc3.jpg"></td>
+                <td><button class="button" onclick="location.href=''">Next</button></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Thailand Cuisine</td>
+                <td><img src="images/fc4.jpg"></td>
+                <td><button class="button" onclick="location.href=''">Next</button></td>
             </tr>
         </table>
     </center>
 </div>
+
+<footer>
+    <div class="footer-content">
+        <p>&copy; <?php echo date("Y"); ?> Foodie Express. All rights reserved.</p>
+    </div>
+</footer>
+
 </body>
 </html>
