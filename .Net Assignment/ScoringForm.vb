@@ -6,7 +6,7 @@ Public Class ScoringForm
     Private questionCount As Integer = 0
 
     Private Sub btnEasy_Click(sender As Object, e As EventArgs) Handles btnEasy.Click
-        pEasy.Location = New Point(20, 150)
+        pEasy.Location = New Point(45, 230)
         pEasy.Show()
     End Sub
 
@@ -75,7 +75,7 @@ Public Class ScoringForm
     '----------------------------------------------------------------------------------'
 
     Private Sub btnMedium_Click(sender As Object, e As EventArgs) Handles btnMedium.Click
-        pMedium.Location = New Point(285, 150)
+        pMedium.Location = New Point(315, 230)
         pMedium.Show()
     End Sub
 
@@ -135,7 +135,7 @@ Public Class ScoringForm
     '----------------------------------------------------------------------------------'
 
     Private Sub btnHard_Click(sender As Object, e As EventArgs) Handles btnHard.Click
-        pHard.Location = New Point(560, 150)
+        pHard.Location = New Point(585, 230)
         pHard.Show()
     End Sub
 
