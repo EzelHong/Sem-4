@@ -1,13 +1,11 @@
 <?php
-    session_start();
-    
     $servername = "localhost";
     $dbusername = "root";
     $dbpassword = "ROOT28";
     $dbname = "Final";
 
     // Create a connection
-    $conn = new mysqli($servername, $dbusername, $dbpassword);
+    $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
 
     // Check the connection
     if ($conn->connect_error) {
@@ -97,6 +95,7 @@
             color: white;
         }
     </style>
+
 </head>
 <body>
 <nav>
@@ -115,6 +114,7 @@
 <form method="post" action="FA_Cart.php">
 
 <?php
+session_start();
     $servername = "localhost";
     $dbusername = "root";
     $dbpassword = "ROOT28";
@@ -144,12 +144,16 @@
 
         $i = 1;
         while ($row = mysqli_fetch_assoc($result)) {
+            $foodID = $row['FoodID'];
+            $foodName = $row['FoodName'];
+            $foodPrice = $row['Price'];
+
             echo "<tr>";
-            echo "<td>" . $row['FoodID'] . "</td>";
-            echo "<td>" . $row['FoodName'] . "</td>";
+            echo "<td>" . $foodID . "</td>";
+            echo "<td>" . $foodName . "</td>";
             echo "<td><img src='images/JF$i.jpg' height='120' width='120'/></td>";
-            echo "<td>" . $row['Price'] . "</td>";
-            echo "<td><button class='buy-now-btn' onclick='addToCart(" . $row['FoodID'] . ")'>Buy Now</button></td>";
+            echo "<td>" . $foodPrice . "</td>";
+            echo "<td><a class='buy-now-btn' href='FA_Cart.php?id=" . $foodID . "&name=" . urlencode($foodName) . "&price=" . $foodPrice . "'>Buy Now</a></td>";
             echo "</tr>";
             $i++;
         }
@@ -162,20 +166,6 @@
     $conn->close();
 ?>
 </div>
-
-<script>
-    function addToCart(foodId) {
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST", "FA_Cart.php", true);
-        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                alert(xhr.responseText);
-            }
-        };
-        xhr.send("food_id=" + foodId);
-    }
-</script>
 
 <footer>
     <div class="footer-content">
