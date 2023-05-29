@@ -91,7 +91,7 @@
 		<li><a class="active" href="FA_Home.php">Home</a></li>
 		<li><a href="FA_About.php">About</a></li>
 		<li><a href="FA_Food.php">Food</a></li>
-		<li><a href="#">Cart</a></li>
+		<li><a href="FA_Cart.php">Cart</a></li>
 		<li><a href="FA_Login.html">Login</a></li>
 	</ul>
 </nav>
