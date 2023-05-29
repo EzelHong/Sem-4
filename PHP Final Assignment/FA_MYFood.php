@@ -44,7 +44,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Western Food Category</title>
+    <title>Malaysia Food Category</title>
     <link rel="stylesheet" href="Final.css">
     <style>
         body{
