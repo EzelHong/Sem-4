@@ -7,7 +7,8 @@
         body{
             background-image: url('images/food.jpg');
             background-repeat: 1;
-            background-size: 100%;
+            background-size: 112%;
+            background-position: center;
             font-family: Times, sans-serif;
         }
 
@@ -18,6 +19,7 @@
             background-color: lightyellow;
             border-radius: 10px;
             text-align: center;
+            box-shadow: 0 20px 40px;
         }
 
         table {
@@ -66,7 +68,7 @@
         <li><a href="FA_Home.php">Home</a></li>
         <li><a href="FA_About.php">About</a></li>
         <li><a class="active" href="FA_Food.php">Food</a></li>
-        <li><a href="#">Cart</a></li>
+        <li><a href="FA_Cart.php">Cart</a></li>
         <li><a href="FA_Login.html">Login</a></li>
     </ul>
 </nav><br>
@@ -85,7 +87,7 @@
                 <td>1</td>
                 <td>Western Cuisine</td>
                 <td><img src="images/fc1.jpg"></td>
-                <td><button class="button" onclick="location.href='FA_WesternFood.php'">Next</button></td>
+                <td><button class="button" onclick="location.href='FA_WFood.php'">Next</button></td>
             </tr>
             <tr>
                 <td>2</td>
@@ -97,15 +99,15 @@
                 <td>3</td>
                 <td>Malaysian Cuisine</td>
                 <td><img src="images/fc3.jpg"></td>
-                <td><button class="button" onclick="location.href=''">Next</button></td>
+                <td><button class="button" onclick="location.href='FA_MYFood.php'">Next</button></td>
             </tr>
             <tr>
                 <td>4</td>
                 <td>Thailand Cuisine</td>
                 <td><img src="images/fc4.jpg"></td>
-                <td><button class="button" onclick="location.href=''">Next</button></td>
+                <td><button class="button" onclick="location.href='FA_ThaiFood.php'">Next</button></td>
             </tr>
-        </table>
+        </table><br><hr>
     </center>
 </div>
 
