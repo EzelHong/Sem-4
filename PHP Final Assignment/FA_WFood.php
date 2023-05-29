@@ -30,9 +30,9 @@
     if (mysqli_num_rows($result) === 0) {
         $insertQuery = "INSERT INTO WestFood (FoodName, FoodImage, Price)
             VALUES
-                ('Chicken Chop', 'WF1.jpg', 15.00),
+                ('Chicken Chop', 'WF1.jpg', 19.00),
                 ('Hamburger', 'WF2.jpg', 10.00),
-                ('Spaghetti', 'WF3.jpg', 12.00),
+                ('Spaghetti', 'WF3.jpg', 15.00),
                 ('Pizza', 'WF4.jpg', 12.00),
                 ('Salad', 'WF5.jpg', 8.00)";
         mysqli_query($conn, $insertQuery);
@@ -50,7 +50,8 @@
         body{
             background-image: url('images/food.jpg');
             background-repeat: 1;
-            background-size: 100%;
+            background-size: 120%;
+            background-position: center;
             font-family: Times, sans-serif;
         }
 
@@ -114,7 +115,8 @@
 <form method="post" action="FA_Cart.php">
 
 <?php
-session_start();
+    session_start();
+
     $servername = "localhost";
     $dbusername = "root";
     $dbpassword = "ROOT28";
@@ -165,6 +167,8 @@ session_start();
 
     $conn->close();
 ?>
+<br>
+<p><a href="javascript:history.go(-1)">Go back</a></p>
 </div>
 
 <footer>
