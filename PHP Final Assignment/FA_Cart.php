@@ -18,6 +18,7 @@
             background-color: lightyellow;
             border-radius: 10px;
             text-align: center;
+            box-shadow: 0 20px 40px;
         }
 
         table {
@@ -111,7 +112,7 @@
         $insertQuery = "INSERT INTO Cart (FoodID, FoodName, Price) VALUES ('$foodID', '$foodName', '$foodPrice')";
         if ($conn->query($insertQuery) === TRUE) {
             // Display success message
-            echo "Food added to cart successfully: " . $foodName;
+            echo "";
         } else {
             echo "Error adding food to cart: " . $conn->error;
         }
@@ -170,7 +171,8 @@
         $conn->close();
     ?>
 
-</table><br><hr>
+</table><br><hr><br>
+<p><a href="javascript:history.go(-1)">Go back</a></p>
 </div>
 
 <footer>
