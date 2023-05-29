@@ -21,6 +21,8 @@
 <h2>Register Complete!</h2><br>
 
 <?php
+    session_start();
+    
     $servername = "localhost";
     $dbusername = "root";
     $dbpassword = "ROOT28";
