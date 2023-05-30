@@ -1,3 +1,17 @@
+<?php
+    session_start();
+    if (!isset($_SESSION['username'])) {
+        header("Location: FA_Login.html");
+        exit();
+    }
+
+    if (isset($_POST['logout'])) {
+        session_destroy();
+        header("Location: FA_Login.html");
+        exit();
+    }
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -82,6 +96,24 @@
         font-size: 15px;
         color: white;
     }
+
+    .session-message {
+        text-align: center;
+        font-size: 24px;
+    }
+
+    .logout-form {
+        text-align: right;
+        margin-top: 20px;
+    }
+
+    .logout-btn {
+        padding: 10px 20px;
+        background-color: red;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
 </style>
 </head>
 <body>
@@ -100,7 +132,9 @@
 <div class="wrapper">
     <h1>Welcome to Foodie Express!</h1><br><hr>
     <div class="container">
-    <p><a><strong>Welcome to Foodie Express! </strong></a></p><br>
+    <div class="session-message">
+    <p>Hello, <?php echo $_SESSION['username']; ?>!</p><br>
+    </div>
     <p>We're here to make your dining experience convenient, enjoyable, and satisfying. 
         Browse our curated restaurant listings, explore enticing menus, and place your order effortlessly. 
         We prioritize quality and partner with reputable restaurants for fresh, delicious meals. 
@@ -108,6 +142,11 @@
         Thank you for choosing Foodie Express, your trusted food delivery partner. Let us bring culinary delights to your doorstep!</p>
     <br><p> - The Foodie Express Team</p>
 </div><hr>
+<div class="logout-form">
+    <form method="post">
+        <input class="logout-btn" type="submit" name="logout" value="Logout">
+    </form>
+</div>
 </div>
 
 
@@ -150,7 +189,7 @@
     </form><br><hr>
 </div>
     
-    
+
 <div class="wrapper">
     <form method="post">
     <h1><a>Why choose Foodie Express?</a></h1><br><hr>
@@ -162,6 +201,7 @@
     </div><hr>
     </form>
 </div>
+
 
 <footer>
     <div class="footer-content">
