@@ -23,17 +23,21 @@
         }
 
         table {
+            background-color: white;
             border-collapse: collapse;
             width: 500px;
         }
+
         th, td {
             border: 1px solid black;
             padding: 5px;
         }
+
         img {
             width: 200px;
             height: 150px;
         }
+
         .button {
             padding: 5px 10px;
             background-color: #4CAF50;
@@ -41,10 +45,6 @@
             text-decoration: none;
             border: none;
             cursor: pointer;
-        }
-
-        table{
-            background-color: white;
         }
 
         footer {
