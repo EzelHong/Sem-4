@@ -22,17 +22,21 @@
         }
 
         table {
+            background-color: white;
             border-collapse: collapse;
             width: 500px;
         }
+
         th, td {
             border: 1px solid black;
             padding: 5px;
         }
+
         img {
             width: 200px;
             height: 150px;
         }
+
         .button {
             padding: 5px 10px;
             background-color: #4CAF50;
@@ -41,11 +45,7 @@
             border: none;
             cursor: pointer;
         }
-
-        table{
-            background-color: white;
-        }
-
+        
         footer {
             background-color: darkred;
             padding: 20px;
@@ -81,13 +81,13 @@
         $foodName = $_GET['name'];
         $foodPrice = $_GET['price'];
 
-        // Database connection configuration
+        $name = $_SESSION['username'];
+
         $servername = "localhost";
         $dbusername = "root";
         $dbpassword = "ROOT28";
         $dbname = "Final";
 
-        // Create a connection
         $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
 
         // Check the connection
@@ -96,7 +96,7 @@
         }
 
         // Create the "Cart" table if it doesn't exist
-        $createTableQuery = "CREATE TABLE IF NOT EXISTS Cart (
+        $createTableQuery = "CREATE TABLE IF NOT EXISTS $name (
             CartID INT(10) PRIMARY KEY AUTO_INCREMENT,
             FoodID INT(10) NOT NULL,
             FoodName VARCHAR(50) NOT NULL,
@@ -108,8 +108,8 @@
             exit;
         }
 
-        // Insert the selected food into the "Cart" table
-        $insertQuery = "INSERT INTO Cart (FoodID, FoodName, Price) VALUES ('$foodID', '$foodName', '$foodPrice')";
+        // Insert the selected food into the "$username" table
+        $insertQuery = "INSERT INTO $name (FoodID, FoodName, Price) VALUES ('$foodID', '$foodName', '$foodPrice')";
         if ($conn->query($insertQuery) === TRUE) {
             // Display success message
             echo "";
@@ -140,6 +140,8 @@
         $dbpassword = "ROOT28";
         $dbname = "Final";
 
+        $name = $_SESSION['username'];
+
         // Create a connection
         $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
 
@@ -149,7 +151,7 @@
         }
 
         // Retrieve items from the "Cart" table
-        $query = "SELECT FoodName, Price FROM Cart";
+        $query = "SELECT FoodName, Price FROM $name";
         $result = mysqli_query($conn, $query);
 
         if (mysqli_num_rows($result) > 0) {
