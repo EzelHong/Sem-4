@@ -4,7 +4,6 @@
     $dbpassword = "ROOT28";
     $dbname = "Final";
 
-    // Create a connection
     $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
 
     // Check the connection
@@ -15,7 +14,7 @@
     // Select the database
     $conn->select_db($dbname);
 
-    // Create the "food" table if it doesn't exist
+    // Create the "MYFood" table if it doesn't exist
     $query = "CREATE TABLE IF NOT EXISTS MYFood (
                 FoodID INT(10) PRIMARY KEY AUTO_INCREMENT,
                 FoodName VARCHAR(50) NOT NULL,
@@ -24,7 +23,7 @@
             )";
     mysqli_query($conn, $query);
 
-    // Insert sample data into the "food" table only if it's empty
+    // Insert sample data into the "MYFood" table only if it's empty
     $query = "SELECT * FROM MYFood";
     $result = mysqli_query($conn, $query);
     if (mysqli_num_rows($result) === 0) {
@@ -96,7 +95,6 @@
             color: white;
         }
     </style>
-
 </head>
 <body>
 <nav>
@@ -114,59 +112,59 @@
 <h1>Malaysia Food Category</h1><br><hr><br>
 <form method="post" action="FA_Cart.php">
 
-<?php
-    session_start();
-    
-    $servername = "localhost";
-    $dbusername = "root";
-    $dbpassword = "ROOT28";
-    $dbname = "Final";
+    <?php
+        session_start();
+        
+        $servername = "localhost";
+        $dbusername = "root";
+        $dbpassword = "ROOT28";
+        $dbname = "Final";
 
-    // Create a connection
-    $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
+        $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
 
-    // Check the connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
-    // Retrieve data from the "food" table
-    $query = "SELECT * FROM MYFood";
-    $result = mysqli_query($conn, $query);
-
-    if (mysqli_num_rows($result) > 0) {
-        echo "<table>";
-        echo "<tr>";
-        echo "<th width = '200px'>FoodID</th>";
-        echo "<th width = '200px'>FoodName</th>";
-        echo "<th width = '200px'>FoodImage</th>";
-        echo "<th width = '200px'>Price</th>";
-        echo "<th width = '200px'>Buy Now</th>";
-        echo "</tr>";
-
-        $i = 1;
-        while ($row = mysqli_fetch_assoc($result)) {
-            $foodID = $row['FoodID'];
-            $foodName = $row['FoodName'];
-            $foodPrice = $row['Price'];
-
-            echo "<tr>";
-            echo "<td>" . $foodID . "</td>";
-            echo "<td>" . $foodName . "</td>";
-            echo "<td><img src='images/MYF$i.jpg' height='120' width='120'/></td>";
-            echo "<td>" . $foodPrice . "</td>";
-            echo "<td><a class='buy-now-btn' href='FA_Cart.php?id=" . $foodID . "&name=" . urlencode($foodName) . "&price=" . $foodPrice . "'>Buy Now</a></td>";
-            echo "</tr>";
-            $i++;
+        // Check the connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
         }
 
-        echo "</table>";
-    } else {
-        echo "No records found.";
-    }
+        // Retrieve data from the "food" table
+        $query = "SELECT * FROM MYFood";
+        $result = mysqli_query($conn, $query);
 
-    $conn->close();
-?>
+        if (mysqli_num_rows($result) > 0) {
+            echo "<table>";
+            echo "<tr>";
+            echo "<th width = '200px'>FoodID</th>";
+            echo "<th width = '200px'>FoodName</th>";
+            echo "<th width = '200px'>FoodImage</th>";
+            echo "<th width = '200px'>Price</th>";
+            echo "<th width = '200px'>Buy Now</th>";
+            echo "</tr>";
+
+            $i = 1;
+            while ($row = mysqli_fetch_assoc($result)) {
+                $foodID = $row['FoodID'];
+                $foodName = $row['FoodName'];
+                $foodPrice = $row['Price'];
+
+                echo "<tr>";
+                echo "<td>" . $foodID . "</td>";
+                echo "<td>" . $foodName . "</td>";
+                echo "<td><img src='images/MYF$i.jpg' height='120' width='120'/></td>";
+                echo "<td>" . $foodPrice . "</td>";
+                echo "<td><a class='buy-now-btn' href='FA_Cart.php?id=" . $foodID . "&name=" . urlencode($foodName) 
+                . "&price=" . $foodPrice . "'>Buy Now</a></td>";
+                echo "</tr>";
+                $i++;
+            }
+            
+            echo "</table>";
+        } else {
+            echo "No records found.";
+        }
+
+        $conn->close();
+    ?>
 <br>
 <p><a href="javascript:history.go(-1)">Go back</a></p>
 </div>
