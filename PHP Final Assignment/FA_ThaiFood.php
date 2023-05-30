@@ -4,7 +4,6 @@
     $dbpassword = "ROOT28";
     $dbname = "Final";
 
-    // Create a connection
     $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
 
     // Check the connection
@@ -15,7 +14,7 @@
     // Select the database
     $conn->select_db($dbname);
 
-    // Create the "food" table if it doesn't exist
+    // Create the "ThaiFood" table if it doesn't exist
     $query = "CREATE TABLE IF NOT EXISTS ThaiFood (
                 FoodID INT(10) PRIMARY KEY AUTO_INCREMENT,
                 FoodName VARCHAR(50) NOT NULL,
@@ -24,7 +23,6 @@
             )";
     mysqli_query($conn, $query);
 
-    // Insert sample data into the "food" table only if it's empty
     $query = "SELECT * FROM ThaiFood";
     $result = mysqli_query($conn, $query);
     if (mysqli_num_rows($result) === 0) {
@@ -96,7 +94,6 @@
             color: white;
         }
     </style>
-
 </head>
 <body>
 <nav>
@@ -155,7 +152,8 @@
             echo "<td>" . $foodName . "</td>";
             echo "<td><img src='images/TF$i.jpg' height='120' width='120'/></td>";
             echo "<td>" . $foodPrice . "</td>";
-            echo "<td><a class='buy-now-btn' href='FA_Cart.php?id=" . $foodID . "&name=" . urlencode($foodName) . "&price=" . $foodPrice . "'>Buy Now</a></td>";
+            echo "<td><a class='buy-now-btn' href='FA_Cart.php?id=" . $foodID . "&name=" . urlencode($foodName) 
+            . "&price=" . $foodPrice . "'>Buy Now</a></td>";
             echo "</tr>";
             $i++;
         }
