@@ -27,7 +27,6 @@
     $dbusername = "root";
     $dbpassword = "ROOT28";
 
-    // Create a connection
     $conn = new mysqli($servername, $dbusername, $dbpassword);
 
     // Check the connection
@@ -45,14 +44,12 @@
 
     $conn->close();
 
-	
 	//Table
     $servername = "localhost";
     $dbusername = "root";
     $dbpassword = "ROOT28";
     $dbname = "Final";
 
-    // Create a connection
     $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
 
     // Check the connection
@@ -60,7 +57,7 @@
         die("Connection failed: " . $conn->connect_error);
     }
 
-    // Create the table
+    // Create the "users" table
     $sql = "CREATE TABLE IF NOT EXISTS users (
         username VARCHAR(30) NOT NULL PRIMARY KEY,
         password VARCHAR(30) NOT NULL,
@@ -77,7 +74,6 @@
 
     $conn->close();
 ?>
-
 
 
 <?php
@@ -114,7 +110,8 @@
 		} elseif (strlen($userpassword) < 4) {
 			echo "Error: Password must be at least 4 characters long.";
 		} elseif ($confirm_password !== $userpassword) {
-			echo "<script>alert('Error: Passwords do not match. Please make sure the password and confirm password fields are the same.'); window.location.href = 'FA_Register.html';</script>";
+			echo "<script>alert('Error: Passwords do not match. Password and Confirm Password fields must same.'); 
+            window.location.href = 'FA_Register.html';</script>";
 		} elseif (!filter_var($address)) {
 			echo "Error: Please enter your address.";
 		} elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
