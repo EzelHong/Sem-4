@@ -1,16 +1,16 @@
 <?php
+    session_start();
+
     if (isset($_POST["submit"])) {
         // Retrieve user inputs
         $name = $_POST["username"];
         $userpassword = $_POST["password"];
 
-        // Database credentials
         $servername = "localhost";
         $dbusername = "root";
         $dbpassword = "ROOT28";
         $dbname = "Final";
 
-        // Create a connection
         $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
 
         // Check connection
@@ -25,7 +25,21 @@
         if ($result->num_rows == 1) {
             // Login successful
             echo "Login successful";
+            $_SESSION['username'] = $name;
 
+            // Create a cart table for the user if it doesn't exist
+            $createCartTableQuery = "CREATE TABLE IF NOT EXISTS $name (
+                CartID INT(10) PRIMARY KEY AUTO_INCREMENT,
+                FoodID INT(10) NOT NULL,
+                FoodName VARCHAR(50) NOT NULL,
+                Price DECIMAL(10, 2) NOT NULL
+            )";
+
+            if ($conn->query($createCartTableQuery) === FALSE) {
+                echo "Error creating cart table: " . $conn->error;
+                $conn->close();
+                exit;
+            }
             // Redirect the user to FA_Home.php
             header("Location: FA_Home.php");
             exit();
