@@ -54,9 +54,48 @@
 </nav>
 
 <div class="wrapper">
-    <h1>Purchase Complete!</h1><br>
+    <h1>Purchase Complete!</h1><br><hr><br>
     <p class="message">Thank you for your purchase.</p><br>
-    <p><a href="FA_Home.php">Go back to Home</a></p>
+
+    <?php
+        session_start();
+        $name = $_SESSION['username'];
+
+        $servername = "localhost";
+        $dbusername = "root";
+        $dbpassword = "ROOT28";
+        $dbname = "Final";
+
+        $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
+
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        // Retrieve items from the "Cart" table
+        $query = "SELECT FoodName, Price FROM $name";
+        $result = mysqli_query($conn, $query);
+        $totalPrice = 0;
+
+        if (mysqli_num_rows($result) > 0) {
+            echo "<h2>Items You Purchased:</h2><br>";
+            echo "<ul>";
+            while ($row = mysqli_fetch_assoc($result)) {
+                $foodName = $row['FoodName'];
+                $foodPrice = $row['Price'];
+                $totalPrice += $foodPrice;
+                echo "<li>$foodName - RM $foodPrice</li>";
+            }
+            echo "</ul><br>";
+            echo "<h3>Total Price: RM $totalPrice</h3>";
+        } else {
+            echo "<p>No items in the cart.</p>";
+        }
+
+        $conn->close();
+    ?><br><hr><br>
+
+<p><a href="FA_Home.php">Go back to Home</a></p>
 </div>
 
 <?php
