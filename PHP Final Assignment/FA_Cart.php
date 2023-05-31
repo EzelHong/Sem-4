@@ -90,7 +90,6 @@
 
         $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
 
-        // Check the connection
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
@@ -111,15 +110,42 @@
         // Insert the selected food into the "$username" table
         $insertQuery = "INSERT INTO $name (FoodID, FoodName, Price) VALUES ('$foodID', '$foodName', '$foodPrice')";
         if ($conn->query($insertQuery) === TRUE) {
-            // Display success message
-            echo "";
-        } else {
+        } 
+        else {
             echo "Error adding food to cart: " . $conn->error;
         }
 
         $conn->close();
     } else {
-        echo "Invalid request.";
+        echo "";
+    }
+?>
+
+<?php
+    if (isset($_POST['delete_id'])) {
+        $foodID = $_POST['delete_id'];
+        $name = $_SESSION['username'];
+    
+        $servername = "localhost";
+        $dbusername = "root";
+        $dbpassword = "ROOT28";
+        $dbname = "Final";
+    
+        $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
+    
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+    
+        // Delete the selected food from the cart
+        $deleteQuery = "DELETE FROM $name WHERE CartID = $foodID";
+        if ($conn->query($deleteQuery) === TRUE) {  
+        } 
+        else {
+            echo "Error deleting food from cart: " . $conn->error;
+        }
+    
+        $conn->close();
     }
 ?>
 
@@ -129,12 +155,13 @@
 <center>
     <table>
         <tr>
+            <th>Cart ID</th>
             <th>Food Name</th>
             <th>Price</th>
+            <th>Delete</th>
         </tr>
 
     <?php
-        // Database connection configuration
         $servername = "localhost";
         $dbusername = "root";
         $dbpassword = "ROOT28";
@@ -142,38 +169,48 @@
 
         $name = $_SESSION['username'];
 
-        // Create a connection
         $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
 
-        // Check the connection
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
 
         // Retrieve items from the "Cart" table
-        $query = "SELECT FoodName, Price FROM $name";
+        $query = "SELECT CartID, FoodName, Price FROM $name";
         $result = mysqli_query($conn, $query);
 
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
+                $foodID = $row['CartID'];
                 $foodName = $row['FoodName'];
                 $foodPrice = $row['Price'];
 
                 echo "<tr>";
+                echo "<td>$foodID</td>";
                 echo "<td>$foodName</td>";
                 echo "<td>$foodPrice</td>";
+                echo "<td>
+                        <form method='POST' action='FA_Cart.php'>
+                            <input type='hidden' name='delete_id' value='$foodID'>
+                            <button type='submit'>Delete</button>
+                        </form>
+                    </td>";
                 echo "</tr>";
             }
         } else {
             echo "<tr>";
-            echo "<td colspan='2'>No items in the cart.</td>";
+            echo "<td colspan='4'>No items in the cart.</td>";
             echo "</tr>";
         }
 
         $conn->close();
     ?>
+</table><br>
 
-</table><br><hr><br>
+<form action="FA_Purchase.php" method="POST">
+    <button type="submit" class="button">Purchase</button>
+</form><br><hr><br>
+
 <p><a href="javascript:history.go(-1)">Go back</a></p>
 </div>
 
