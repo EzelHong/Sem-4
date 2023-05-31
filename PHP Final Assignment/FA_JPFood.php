@@ -6,7 +6,6 @@
 
     $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
 
-    // Check the connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
@@ -95,7 +94,6 @@
             color: white;
         }
     </style>
-
 </head>
 <body>
 <nav>
@@ -140,7 +138,7 @@
         echo "<th width = '200px'>FoodName</th>";
         echo "<th width = '200px'>FoodImage</th>";
         echo "<th width = '200px'>Price</th>";
-        echo "<th width = '200px'>Buy Now</th>";
+        echo "<th width = '200px'>Add To Cart</th>";
         echo "</tr>";
 
         $i = 1;
@@ -153,9 +151,9 @@
             echo "<td>" . $foodID . "</td>";
             echo "<td>" . $foodName . "</td>";
             echo "<td><img src='images/JF$i.jpg' height='120' width='120'/></td>";
-            echo "<td>" . $foodPrice . "</td>";
+            echo "<td> RM " . $foodPrice . "</td>";
             echo "<td><a class='buy-now-btn' href='FA_Cart.php?id=" . $foodID . "&name=" . urlencode($foodName) 
-            . "&price=" . $foodPrice . "'>Buy Now</a></td>";
+            . "&price=" . $foodPrice . "'>Add</a></td>";
             echo "</tr>";
             $i++;
         }
