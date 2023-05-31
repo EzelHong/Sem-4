@@ -68,7 +68,7 @@
             background-color: #f2f2f2;
         }
 
-        .buy-now-btn {
+        .Add-btn {
             background-color: #4CAF50;
             color: white;
             padding: 8px 16px;
@@ -77,7 +77,7 @@
             border-radius: 4px;
         }
 
-        .buy-now-btn:hover {
+        .Add-btn:hover {
             background-color: #45a049;
         }
 
@@ -152,7 +152,7 @@
             echo "<td>" . $foodName . "</td>";
             echo "<td><img src='images/JF$i.jpg' height='120' width='120'/></td>";
             echo "<td> RM " . $foodPrice . "</td>";
-            echo "<td><a class='buy-now-btn' href='FA_Cart.php?id=" . $foodID . "&name=" . urlencode($foodName) 
+            echo "<td><a class='Add-btn' href='FA_Cart.php?id=" . $foodID . "&name=" . urlencode($foodName) 
             . "&price=" . $foodPrice . "'>Add</a></td>";
             echo "</tr>";
             $i++;
