@@ -3,6 +3,20 @@
 <head>
 	<title>Show Register Form</title>
 	<link rel="stylesheet" href="FA_Login.css">
+    <style>
+        footer {
+            background-color: darkred;
+            text-align: center;
+			position: fixed;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+			padding: 20px;
+			text-align: center;
+			font-size: 15px;
+            color: white;
+        }
+    </style>
 </head>
 <body>
 <nav>
@@ -18,7 +32,6 @@
 
 <center>
 <div class="wrapper">
-<h2>Register Complete!</h2><br>
 
 <?php
     session_start();
@@ -29,15 +42,13 @@
 
     $conn = new mysqli($servername, $dbusername, $dbpassword);
 
-    // Check the connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    // Create the database
     $sql = "CREATE DATABASE IF NOT EXISTS Final";
     if ($conn->query($sql) === TRUE) {
-        echo "Database created successfully, ";
+
     } else {
         echo "Error creating database: " . $conn->error;
     }
@@ -52,12 +63,10 @@
 
     $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
 
-    // Check the connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    // Create the "users" table
     $sql = "CREATE TABLE IF NOT EXISTS users (
         username VARCHAR(30) NOT NULL PRIMARY KEY,
         password VARCHAR(30) NOT NULL,
@@ -67,7 +76,7 @@
     )";
     
     if ($conn->query($sql) === TRUE) {
-        echo "Table created successfully";
+        
     } else {
         echo "Error creating table: " . $conn->error;
     }
@@ -88,7 +97,6 @@
 
 		$conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
 
-        // Check connection
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
@@ -96,9 +104,9 @@
         // Insert user data into the table
         $sql = "INSERT INTO users (username, password, email, address, dob) VALUES ('$name', '$userpassword', '$email', '$address', '$dob')";
         if ($conn->query($sql) === TRUE) {
-            echo "User registered successfully <br><br>";
+            echo "<h2>Registered Successfully!</h2><br><br>";
         } else {
-            echo "<strong>Error! Username has been taken Please Register Again! </strong><br><br>";
+            echo "<h2>Username has been taken Please Register Again!</h2><br><br>";
         }
 
         $conn->close();
@@ -133,5 +141,12 @@
 <br><br>
 <a href="FA_Login.html">Go to Login</a>
 </div>
+
+<footer>
+    <div class="footer-content">
+        <p>&copy; <?php echo date("Y"); ?> Foodie Express. All rights reserved.</p>
+    </div>
+</footer>
+
 </body>
 </html>
