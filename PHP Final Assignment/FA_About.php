@@ -83,8 +83,8 @@
     <a><strong>Email</strong> - tangkokhong0328@e.neivce.edu.my</a><br><br>
     <img src="images/address.jpg" style = "width: 80px; height:80px; float: left;">
     <a><strong>Address</strong> - Blok B&C, Lot, 5, Seksyen 10, Jalan Bukit, Taman Bukit Mewah, 43000 Kajang, Selangor</a><br><br>
-    
 </div><hr><br>
+
 </form>
 </center>
 
