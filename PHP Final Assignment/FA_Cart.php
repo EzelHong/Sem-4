@@ -38,12 +38,16 @@
         }
 
         .button {
-            padding: 5px 10px;
             background-color: #4CAF50;
             color: white;
-            text-decoration: none;
+            padding: 8px 16px;
             border: none;
             cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .button:hover{
+            background-color: #45a049;
         }
         
         footer {
@@ -178,17 +182,19 @@
         // Retrieve items from the "Cart" table
         $query = "SELECT CartID, FoodName, Price FROM $name";
         $result = mysqli_query($conn, $query);
+        $totalPrice = 0;
 
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
                 $foodID = $row['CartID'];
                 $foodName = $row['FoodName'];
                 $foodPrice = $row['Price'];
+                $totalPrice += $foodPrice;
 
                 echo "<tr>";
                 echo "<td>$foodID</td>";
                 echo "<td>$foodName</td>";
-                echo "<td>$foodPrice</td>";
+                echo "<td>RM $foodPrice</td>";
                 echo "<td>
                         <form method='POST' action='FA_Cart.php'>
                             <input type='hidden' name='delete_id' value='$foodID'>
@@ -197,10 +203,12 @@
                     </td>";
                 echo "</tr>";
             }
+            echo "<h3>Total Price: RM $totalPrice</h3><br>";
         } else {
             echo "<tr>";
             echo "<td colspan='4'>No items in the cart.</td>";
             echo "</tr>";
+            
         }
 
         $conn->close();
