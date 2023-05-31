@@ -13,17 +13,16 @@
 
         $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
 
-        // Check connection
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
 
-        // Query to check if the username and password match
+        // Check username and password match
         $sql = "SELECT * FROM users WHERE username = '$name' AND password = '$userpassword'";
         $result = $conn->query($sql);
 
         if ($result->num_rows == 1) {
-            // Login successful
+            // Login successful take session username
             echo "Login successful";
             $_SESSION['username'] = $name;
 
@@ -40,11 +39,10 @@
                 $conn->close();
                 exit;
             }
-            // Redirect the user to FA_Home.php
             header("Location: FA_Home.php");
             exit();
+
         } else {
-            // Login failed
             echo "Invalid username or password";
         }
 
