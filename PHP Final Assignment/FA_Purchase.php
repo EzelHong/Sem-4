@@ -20,12 +20,22 @@
             text-align: center;
             box-shadow: 0 20px 40px;
         }
+
+        table {
+            margin: auto;
+            width: 500px;
+            border-collapse: collapse;
+        }
         
         .message {
             font-size: 24px;
             color: green;
         }
-        
+
+        .centered-table {
+            margin: 0 auto;
+        }
+
         footer {
             background-color: darkred;
             padding: 20px;
@@ -71,38 +81,64 @@
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
+        
+        $userQuery = "SELECT Username, Email, Address FROM users WHERE Username = '$name'";
+        $userResult = mysqli_query($conn, $userQuery);
 
-        // Retrieve items from the "Cart" table
-        $query = "SELECT FoodName, Price FROM $name";
+        if (mysqli_num_rows($userResult) > 0) {
+            $userData = mysqli_fetch_assoc($userResult);
+            $username = $userData['Username'];
+            $email = $userData['Email'];
+            $address = $userData['Address'];
+
+            echo "<h3>Username: $username</h3>";
+            echo "<h3>Email: $email</h3>";
+            echo "<h3>Address: $address</h3>";
+            echo "<br>";
+        }
+
+        $query = "SELECT CartID, FoodName, Price FROM $name";
         $result = mysqli_query($conn, $query);
         $totalPrice = 0;
 
         if (mysqli_num_rows($result) > 0) {
             echo "<h2>Items You Purchased:</h2><br>";
-            echo "<ul>";
+            echo "<table>";
+            echo "<tr>
+                    <th>CartID</th>
+                    <th>Food Name</th>
+                    <th>Price</th>
+                </tr>";
+
             while ($row = mysqli_fetch_assoc($result)) {
+                $cartID = $row['CartID'];
                 $foodName = $row['FoodName'];
                 $foodPrice = $row['Price'];
                 $totalPrice += $foodPrice;
-                echo "<li>$foodName - RM $foodPrice</li>";
+                echo "<tr>
+                        <td>$cartID</td>
+                        <td>$foodName</td>
+                        <td>RM $foodPrice</td>
+                    </tr>";
             }
-            echo "</ul><br>";
-            echo "<h3>Total Price: RM $totalPrice</h3>";
-        } else {
-            echo "<p>No items in the cart.</p>";
-        }
+                echo "</table><br>";
+                echo "<h2>Total Price: RM $totalPrice</h2>";
+            } else {
+                echo "<p>No items in the cart.</p>";
+            }
 
         $conn->close();
-    ?><br><hr><br>
+    ?>
+    <br><hr><br>
 
-<p><a href="FA_Home.php">Go back to Home</a></p>
+    <?php
+        if (mysqli_num_rows($result) > 0) {
+            echo '<a href="FA_Download.php" class="download-button">Download Purchase Details</a>';
+        }
+    ?>
+    <br><br>
+    <p><a href="FA_Home.php">Go back to Home</a></p>
 </div>
-
-<?php
-    for ($i = 1; $i <= 20; $i++) {
-        echo "Iteration: " . $i . "<br>";
-    }
-?>
 
 <footer>
     <div class="footer-content">
