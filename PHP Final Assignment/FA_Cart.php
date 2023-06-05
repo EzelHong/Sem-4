@@ -98,7 +98,7 @@
             die("Connection failed: " . $conn->connect_error);
         }
 
-        // Create the "Cart" table if it doesn't exist
+        // Create "Cart" table if it doesn't exist
         $createTableQuery = "CREATE TABLE IF NOT EXISTS $name (
             CartID INT(10) PRIMARY KEY AUTO_INCREMENT,
             FoodID INT(10) NOT NULL,
@@ -111,7 +111,7 @@
             exit;
         }
 
-        // Insert the selected food into the "$username" table
+        // Insert selected food into the "$username" table
         $insertQuery = "INSERT INTO $name (FoodID, FoodName, Price) VALUES ('$foodID', '$foodName', '$foodPrice')";
         if ($conn->query($insertQuery) === TRUE) {
         } 
@@ -208,7 +208,6 @@
             echo "<tr>";
             echo "<td colspan='4'>No items in the cart.</td>";
             echo "</tr>";
-            
         }
 
         $conn->close();
