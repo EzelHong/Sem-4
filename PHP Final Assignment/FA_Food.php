@@ -25,7 +25,7 @@
         table {
             background-color: white;
             border-collapse: collapse;
-            width: 500px;
+            width: 600px;
         }
 
         th, td {
@@ -39,14 +39,18 @@
         }
 
         .button {
-            padding: 5px 10px;
             background-color: #4CAF50;
             color: white;
-            text-decoration: none;
+            padding: 8px 15px;
             border: none;
             cursor: pointer;
+            border-radius: 4px;
         }
 
+        .button:hover{
+            background-color: #45a049;
+        }
+        
         footer {
             background-color: darkred;
             padding: 20px;
@@ -69,7 +73,7 @@
         <li><a href="FA_About.php">About</a></li>
         <li><a class="active" href="FA_Food.php">Food</a></li>
         <li><a href="FA_Cart.php">Cart</a></li>
-        <li><a href="FA_Login.html">Login</a></li>
+        <li><a href="FA_Login.html">Logout</a></li>
     </ul>
 </nav><br>
 
@@ -79,7 +83,7 @@
         <table>
             <tr>
                 <th>ID</th>
-                <th>Name</th>
+                <th>Category</th>
                 <th>Image</th>
                 <th>Action</th>
             </tr>
