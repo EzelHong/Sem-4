@@ -59,7 +59,7 @@
 		<li><a href="FA_About.php">About</a></li>
 		<li><a href="FA_Food.php">Food</a></li>
 		<li><a href="FA_Cart.php">Cart</a></li>
-		<li><a href="FA_Login.html">Login</a></li>
+		<li><a href="FA_Login.html">Logout</a></li>
 	</ul>
 </nav>
 
