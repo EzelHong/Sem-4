@@ -6,15 +6,12 @@
 
     $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
 
-    // Check the connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    // Select the database
     $conn->select_db($dbname);
 
-    // Create the "ThaiFood" table if it doesn't exist
     $query = "CREATE TABLE IF NOT EXISTS ThaiFood (
                 FoodID INT(10) PRIMARY KEY AUTO_INCREMENT,
                 FoodName VARCHAR(50) NOT NULL,
@@ -103,7 +100,7 @@
 		<li><a href="FA_About.php">About</a></li>
 		<li><a class="active" href="FA_Food.php">Food</a></li>
 		<li><a href="FA_Cart.php">Cart</a></li>
-		<li><a href="FA_Login.html">Login</a></li>
+		<li><a href="FA_Login.html">Logout</a></li>
 	</ul>
 </nav><br>
 
