@@ -124,7 +124,7 @@
 		<li><a href="FA_About.php">About</a></li>
 		<li><a href="FA_Food.php">Food</a></li>
 		<li><a href="FA_Cart.php">Cart</a></li>
-		<li><a href="FA_Login.html">Login</a></li>
+		<li><a href="FA_Login.html">Logout</a></li>
 	</ul>
 </nav>
 
@@ -148,7 +148,6 @@
     </form>
 </div>
 </div>
-
 
 <div class="wrapper">
 <form method="post">
@@ -189,7 +188,6 @@
     </form><br><hr>
 </div>
     
-
 <div class="wrapper">
     <form method="post">
     <h1><a>Why choose Foodie Express?</a></h1><br><hr>
@@ -202,11 +200,11 @@
     </form>
 </div>
 
-
 <footer>
     <div class="footer-content">
         <p>&copy; <?php echo date("Y"); ?> Foodie Express. All rights reserved.</p>
     </div>
 </footer>
+
 </body>
 </html>
