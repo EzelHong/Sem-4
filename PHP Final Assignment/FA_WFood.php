@@ -10,10 +10,8 @@
         die("Connection failed: " . $conn->connect_error);
     }
 
-    // Select the database
     $conn->select_db($dbname);
 
-    // Create the "WestFood" table if it doesn't exist
     $query = "CREATE TABLE IF NOT EXISTS WestFood (
                 FoodID INT(10) PRIMARY KEY AUTO_INCREMENT,
                 FoodName VARCHAR(50) NOT NULL,
@@ -22,7 +20,6 @@
             )";
     mysqli_query($conn, $query);
 
-    // Insert sample data into the "food" table only if it's empty
     $query = "SELECT * FROM WestFood";
     $result = mysqli_query($conn, $query);
     if (mysqli_num_rows($result) === 0) {
@@ -97,13 +94,13 @@
 </head>
 <body>
 <nav>
-	<label class="logo">Foodie Express</label>
+	<label class="logo">Foodie Express.png</label>
 	<ul>
 		<li><a href="FA_Home.php">Home</a></li>
 		<li><a href="FA_About.php">About</a></li>
 		<li><a class="active" href="FA_Food.php">Food</a></li>
 		<li><a href="FA_Cart.php">Cart</a></li>
-		<li><a href="FA_Login.html">Login</a></li>
+		<li><a href="FA_Login.html">Logout</a></li>
 	</ul>
 </nav><br>
 
@@ -125,7 +122,6 @@
         die("Connection failed: " . $conn->connect_error);
     }
 
-    // Retrieve data from the "food" table
     $query = "SELECT * FROM WestFood";
     $result = mysqli_query($conn, $query);
 
