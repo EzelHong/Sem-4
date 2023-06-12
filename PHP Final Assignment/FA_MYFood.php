@@ -6,15 +6,12 @@
 
     $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
 
-    // Check the connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    // Select the database
     $conn->select_db($dbname);
 
-    // Create the "MYFood" table if it doesn't exist
     $query = "CREATE TABLE IF NOT EXISTS MYFood (
                 FoodID INT(10) PRIMARY KEY AUTO_INCREMENT,
                 FoodName VARCHAR(50) NOT NULL,
@@ -23,7 +20,6 @@
             )";
     mysqli_query($conn, $query);
 
-    // Insert sample data into the "MYFood" table only if it's empty
     $query = "SELECT * FROM MYFood";
     $result = mysqli_query($conn, $query);
     if (mysqli_num_rows($result) === 0) {
@@ -104,7 +100,7 @@
 		<li><a href="FA_About.php">About</a></li>
 		<li><a class="active" href="FA_Food.php">Food</a></li>
 		<li><a href="FA_Cart.php">Cart</a></li>
-		<li><a href="FA_Login.html">Login</a></li>
+		<li><a href="FA_Login.html">Logout</a></li>
 	</ul>
 </nav><br>
 
@@ -122,12 +118,10 @@
 
         $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
 
-        // Check the connection
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
 
-        // Retrieve data from the "food" table
         $query = "SELECT * FROM MYFood";
         $result = mysqli_query($conn, $query);
 
