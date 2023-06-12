@@ -73,7 +73,7 @@
         <li><a href="FA_About.php">About</a></li>
         <li><a href="FA_Food.php">Food</a></li>
         <li><a class="active" href="FA_Cart.php">Cart</a></li>
-        <li><a href="FA_Login.html">Login</a></li>
+        <li><a href="FA_Login.html">Logout</a></li>
     </ul>
 </nav><br>
 
@@ -98,7 +98,6 @@
             die("Connection failed: " . $conn->connect_error);
         }
 
-        // Create "Cart" table if it doesn't exist
         $createTableQuery = "CREATE TABLE IF NOT EXISTS $name (
             CartID INT(10) PRIMARY KEY AUTO_INCREMENT,
             FoodID INT(10) NOT NULL,
@@ -111,7 +110,6 @@
             exit;
         }
 
-        // Insert selected food into the "$username" table
         $insertQuery = "INSERT INTO $name (FoodID, FoodName, Price) VALUES ('$foodID', '$foodName', '$foodPrice')";
         if ($conn->query($insertQuery) === TRUE) {
         } 
@@ -141,7 +139,6 @@
             die("Connection failed: " . $conn->connect_error);
         }
     
-        // Delete the selected food from the cart
         $deleteQuery = "DELETE FROM $name WHERE CartID = $foodID";
         if ($conn->query($deleteQuery) === TRUE) {  
         } 
@@ -179,7 +176,6 @@
             die("Connection failed: " . $conn->connect_error);
         }
 
-        // Retrieve items from the "Cart" table
         $query = "SELECT CartID, FoodName, Price FROM $name";
         $result = mysqli_query($conn, $query);
         $totalPrice = 0;
