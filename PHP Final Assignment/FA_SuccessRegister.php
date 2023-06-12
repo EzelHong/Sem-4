@@ -23,9 +23,9 @@
 	<label class="logo">Foodie Express</label>
 	<ul>
 		<li><a href="FA_Home.php">Home</a></li>
-		<li><a href="#">About</a></li>
-		<li><a href="#">Food</a></li>
-		<li><a href="#">Cart</a></li>
+		<li><a href="">About</a></li>
+		<li><a href="">Food</a></li>
+		<li><a href="">Cart</a></li>
 		<li><a href="FA_Login.html">Login</a></li>
 	</ul>
 </nav><br>
@@ -101,7 +101,6 @@
             die("Connection failed: " . $conn->connect_error);
         }
 
-        // Insert user data into the table
         $sql = "INSERT INTO users (username, password, email, address, dob) VALUES ('$name', '$userpassword', '$email', '$address', '$dob')";
         if ($conn->query($sql) === TRUE) {
             echo "<h2>Registered Successfully!</h2><br><br>";
